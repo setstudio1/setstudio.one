@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SET · Editorial Wedding Planning &amp; Direction</title>
+<meta name="description" content="SET · Editorial Wedding Planning & Direction aus Bad Saulgau. Nicht organisiert. Inszeniert.">
+<meta name="theme-color" content="#0b0b0a">
+<meta property="og:title" content="SET · Editorial Wedding Planning & Direction">
+<meta property="og:description" content="Die meisten Hochzeiten werden organisiert. Unsere werden inszeniert.">
+<meta property="og:image" content="assets/web/hero-1.jpg">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="preload" as="image" href="assets/web/hero-1.jpg">
+<script>
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && location.search.indexOf('static') < 0){ document.documentElement.classList.add('anim'); }
+  else if(location.search.indexOf('static') > -1){ document.documentElement.classList.add('static'); }
+</script>
+<style>
+  :root{
+    --night:#0b0b0a;
+    --night-2:#141312;
+    --ivory:#ece6dc;
+    --ivory-2:#f4f0e9;
+    --stone:#8d867c;
+    --line-d:rgba(236,230,220,.14);
+    --line-l:rgba(11,11,10,.14);
+    --champagne:#c8b58f;
+    --serif:'Instrument Serif', 'Times New Roman', serif;
+    --sans:'Inter Tight', system-ui, sans-serif;
+    --pad:clamp(20px, 4vw, 64px);
+    --expo:cubic-bezier(.16,1,.3,1);
+    --bg:var(--night); --fg:var(--ivory); --line:var(--line-d); --mute:rgba(236,230,220,.55);
+  }
+  *,*::before,*::after{margin:0; padding:0; box-sizing:border-box;}
+  body{background:var(--bg); color:var(--fg); font-family:var(--sans); font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; transition:background-color .9s ease, color .9s ease;}
+  body.light{--bg:var(--ivory-2); --fg:#141312; --line:var(--line-l); --mute:rgba(20,19,18,.55);}
+  ::selection{background:var(--champagne); color:var(--night);}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  button, input, textarea{font:inherit; color:inherit;}
+  button{background:none; border:0; cursor:pointer;}
+  em{font-style:italic;}
+  .wrap{padding:0 var(--pad); max-width:1600px; margin:0 auto;}
+  .eyebrow{font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:400; color:var(--mute);}
+  .serif{font-family:var(--serif); font-weight:400;}
+  .w{display:inline-block; overflow:hidden; vertical-align:top; padding:0 .04em .14em; margin:0 -.04em -.14em;}
+  .wi{display:inline-block;}
+  section{position:relative;}
+
+  /* ---------- LOADER ---------- */
+  .loader{display:none;}
+  .anim .loader{display:block; position:fixed; inset:0; z-index:3000; pointer-events:none;}
+  .ld-half{position:absolute; left:0; right:0; height:50.5%; background:var(--night);}
+  .ld-top{top:0;} .ld-bot{bottom:0;}
+  .ld-mid{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:26px;}
+  .ld-logo{width:clamp(170px,20vw,300px); overflow:hidden; line-height:0;}
+  .ld-logo img{width:100%; height:auto;}
+  .ld-bar{width:180px; height:1px; background:rgba(236,230,220,.15); position:relative;}
+  .ld-bar i{position:absolute; inset:0; background:var(--ivory); transform:scaleX(0); transform-origin:left;}
+  .ld-count{font-size:11px; letter-spacing:.2em; color:rgba(236,230,220,.5); font-variant-numeric:tabular-nums;}
+
+  /* ---------- NAV ---------- */
+  .nav{position:fixed; top:0; left:0; right:0; z-index:1000; padding:24px var(--pad); display:grid; grid-template-columns:1fr auto 1fr; align-items:center; color:var(--ivory); transition:color .5s ease;}
+  .nav .logo img{transition:filter .5s ease;}
+  .nav.on-light{color:#141312;}
+  .nav.on-light .logo img{filter:invert(1);}
+  .logo{display:block; width:72px; line-height:0;}
+  .logo img{width:100%; height:auto;}
+  .nav-links{display:flex; gap:34px;}
+  .nav a.l{font-size:12px; letter-spacing:.08em; position:relative;}
+  .nav a.l::after{content:''; position:absolute; left:0; right:0; bottom:-4px; height:1px; background:currentColor; transform:scaleX(0); transform-origin:right; transition:transform .5s var(--expo);}
+  .nav a.l:hover::after{transform:scaleX(1); transform-origin:left;}
+  .nav-cta{justify-self:end; font-size:12px; letter-spacing:.08em; display:flex; align-items:center; gap:10px;}
+  .nav-cta i{width:7px; height:7px; border-radius:50%; background:currentColor; display:block;}
+  @media (max-width:860px){ .nav-links{display:none;} .nav{grid-template-columns:1fr auto;} }
+
+  /* ---------- HERO (WebGL) ---------- */
+  .hero{height:100vh; height:100svh; min-height:560px; position:relative; overflow:hidden; background:#000;}
+  .hero-gl{position:absolute; inset:0; will-change:transform;}
+  .hero-gl canvas, .hero-gl img{position:absolute; inset:0; width:100%; height:100%; display:block;}
+  .hero-gl img{object-fit:cover; object-position:30% 50%;}
+  .gl-on .hero-gl img{display:none;}
+  .hero-shade{position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,0) 55%, rgba(0,0,0,.6) 100%);}
+  .hero-ui{position:absolute; inset:0; pointer-events:none; color:var(--ivory);}
+  .hero-kick{position:absolute; left:var(--pad); top:clamp(96px,16vh,150px); max-width:300px;}
+  .hero-kick p{font-size:13px; line-height:1.6; color:rgba(236,230,220,.75); margin-top:12px;}
+  .hero h1{position:absolute; left:var(--pad); bottom:clamp(30px,7vh,70px); font-family:var(--serif); font-weight:400; font-size:clamp(54px, 8.2vw, 148px); line-height:.9; letter-spacing:-.01em;}
+  .hero h1 em{display:block; padding-left:.9em;}
+  .hero-meta{position:absolute; right:var(--pad); bottom:clamp(30px,7vh,70px); width:min(300px, 34vw); pointer-events:auto;}
+  .hm-row{display:flex; justify-content:space-between; align-items:baseline; font-size:12px; letter-spacing:.08em;}
+  .hm-num{font-family:var(--serif); font-size:30px; letter-spacing:0;}
+  .hm-num small{font-size:15px; color:rgba(236,230,220,.5);}
+  .hm-bar{height:1px; background:rgba(236,230,220,.2); margin:12px 0 14px; position:relative; overflow:hidden;}
+  .hm-bar i{position:absolute; inset:0; background:var(--ivory); transform:scaleX(0); transform-origin:left;}
+  .hm-dots{display:flex; gap:8px;}
+  .hm-dots button{flex:1; height:26px; position:relative;}
+  .hm-dots button::after{content:''; position:absolute; left:0; right:0; top:50%; height:1px; background:rgba(236,230,220,.3); transition:background .4s;}
+  .hm-dots button.on::after{background:var(--ivory);}
+  .scroll-cue{position:absolute; left:50%; bottom:28px; transform:translateX(-50%); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(236,230,220,.7); display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .scroll-cue i{width:1px; height:38px; background:rgba(236,230,220,.25); position:relative; overflow:hidden;}
+  .scroll-cue i::after{content:''; position:absolute; left:0; top:0; width:100%; height:40%; background:var(--ivory); animation:cue 2.2s var(--expo) infinite;}
+  @keyframes cue{from{transform:translateY(-100%)} to{transform:translateY(260%)}}
+  @media (max-width:760px){
+    .hero h1{bottom:150px;} .hero h1 em{padding-left:.5em;}
+    .hero-meta{left:var(--pad); right:var(--pad); width:auto; bottom:36px;}
+    .scroll-cue{display:none;}
+    .hero-kick{top:90px;}
+  }
+
+  /* ---------- MANIFESTO (text with inline images) ---------- */
+  .manifesto{padding:clamp(120px,16vw,240px) 0 clamp(100px,12vw,180px);}
+  .mf-top{display:flex; justify-content:space-between; margin-bottom:clamp(40px,5vw,70px);}
+  .mf-text{font-family:var(--serif); font-size:clamp(34px, 5.1vw, 92px); line-height:1.08; letter-spacing:-.01em; max-width:1400px;}
+  .mf-text em{color:var(--champagne);}
+  .pill{display:inline-block; vertical-align:middle; height:.78em; width:1.7em; border-radius:999px; overflow:hidden; margin:0 .08em; position:relative; top:-.06em;}
+  .pill img{width:100%; height:100%; object-fit:cover;}
+
+  /* ---------- CINEMA (image opens to full screen) ---------- */
+  .cinema{height:100vh; height:100svh; overflow:hidden; position:relative;}
+  .cin-frame{position:absolute; inset:0; overflow:hidden; will-change:transform;}
+  .cin-frame img{width:100%; height:100%; object-fit:cover; will-change:transform;}
+  .cin-shade{position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(0,0,0,.6) 0%, rgba(0,0,0,.35) 70%); opacity:0;}
+  .static .cin-shade{opacity:1;}
+  .cin-text{text-shadow:0 2px 30px rgba(0,0,0,.35);}
+  .cin-text{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:var(--ivory); gap:18px;}
+  .cin-text h2{font-family:var(--serif); font-weight:400; font-size:clamp(40px,6vw,104px); line-height:1;}
+  .cin-text h2 span{display:block;}
+  .cin-text h2 span:nth-child(2){font-style:italic; color:var(--champagne);}
+
+  /* ---------- FOUNDER ---------- */
+  .founder{padding:clamp(110px,14vw,220px) 0;}
+  .fd-grid{display:grid; grid-template-columns:5fr 7fr; gap:clamp(40px,7vw,130px); align-items:center;}
+  .fd-frame{aspect-ratio:2/3; overflow:hidden;}
+  .fd-frame img{width:100%; height:118%; object-fit:cover; will-change:transform;}
+  .fd-quote{font-family:var(--serif); font-size:clamp(30px, 3.4vw, 58px); line-height:1.15; margin:30px 0 40px;}
+  .fd-quote em{color:var(--champagne);}
+  .fd-by{display:inline-flex; align-items:center; gap:16px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--mute);}
+  .fd-by::before{content:''; width:40px; height:1px; background:var(--champagne);}
+  @media (max-width:860px){ .fd-grid{grid-template-columns:1fr;} .fd-img{max-width:420px;} }
+
+  /* ---------- WORLDS (expanding panels) ---------- */
+  .worlds{padding:clamp(110px,13vw,200px) 0 clamp(80px,9vw,140px);}
+  .wd-head{display:flex; justify-content:space-between; align-items:flex-end; gap:30px; margin-bottom:clamp(40px,5vw,70px);}
+  .wd-head h2{font-family:var(--serif); font-weight:400; font-size:clamp(42px,5vw,84px); line-height:1; margin-top:22px;}
+  .wd-head h2 em{color:var(--champagne);}
+  .wd-head p{font-size:15px; line-height:1.75; color:var(--mute); max-width:380px;}
+  .wd-row{display:flex; gap:10px; height:min(78vh, 760px);}
+  .wd{position:relative; flex:1; min-width:0; overflow:hidden; cursor:pointer; transition:flex-grow .9s var(--expo); outline:none;}
+  .wd.on{flex-grow:3.4;}
+  .wd img.cv{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transform:scale(1.06); transition:transform 1.6s var(--expo), filter .9s ease; filter:brightness(.62);}
+  .wd.on img.cv{transform:scale(1); filter:brightness(.85);}
+  .wd::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.7)); pointer-events:none;}
+  .wd-label{position:absolute; left:22px; bottom:24px; right:22px; z-index:2; color:var(--ivory);}
+  .wd-num{font-size:11px; letter-spacing:.16em; color:rgba(236,230,220,.7);}
+  .wd-name{font-family:var(--serif); font-size:clamp(28px,2.6vw,44px); line-height:1; margin-top:8px; white-space:nowrap;}
+  .wd-more{display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end; max-height:0; opacity:0; overflow:hidden; transition:max-height .9s var(--expo), opacity .6s ease;}
+  .wd.on .wd-more{max-height:220px; opacity:1;}
+  .wd-more p{font-size:14px; line-height:1.65; color:rgba(236,230,220,.85); max-width:360px; padding-top:12px;}
+  .wd-thumbs{display:flex; gap:8px;}
+  .wd-thumbs img{width:clamp(56px,5vw,84px); aspect-ratio:2/3; object-fit:cover;}
+  @media (max-width:860px){
+    .wd-head{flex-direction:column; align-items:flex-start;}
+    .wd-row{flex-direction:column; height:auto;}
+    .wd{flex:none; height:110px;}
+    .wd.on{height:68vh;}
+    .wd{transition:height .9s var(--expo);}
+  }
+
+  /* ---------- SERVICES (no images, typography only) ---------- */
+  .services{padding:clamp(110px,13vw,200px) 0;}
+  .sv-grid{display:grid; grid-template-columns:1fr 1.6fr; gap:clamp(40px,7vw,140px); align-items:start;}
+  .sv-side{position:sticky; top:120px;}
+  .sv-side h2{font-family:var(--serif); font-weight:400; font-size:clamp(42px,5vw,84px); line-height:1; margin:22px 0 24px;}
+  .sv-side h2 em{display:block;}
+  .sv-side p{font-size:15px; line-height:1.75; color:var(--mute); max-width:360px;}
+  .sv-item{border-top:1px solid var(--line);}
+  .sv-list .sv-item:last-child{border-bottom:1px solid var(--line);}
+  .sv-head{width:100%; display:grid; grid-template-columns:60px 1fr 30px; align-items:baseline; gap:16px; padding:clamp(20px,2.4vw,32px) 0; text-align:left;}
+  .sv-num{font-size:12px; letter-spacing:.1em; color:var(--mute); font-variant-numeric:tabular-nums;}
+  .sv-title{font-family:var(--serif); font-size:clamp(28px,3vw,50px); line-height:1.05; transition:transform .7s var(--expo), font-style 0s;}
+  .sv-head:hover .sv-title{transform:translateX(14px);}
+  .sv-plus{width:16px; height:16px; position:relative; justify-self:end; align-self:center;}
+  .sv-plus::before, .sv-plus::after{content:''; position:absolute; left:0; right:0; top:50%; height:1px; background:currentColor; transition:transform .6s var(--expo);}
+  .sv-plus::after{transform:rotate(90deg);}
+  .sv-item.open .sv-plus::after{transform:rotate(0deg);}
+  .sv-body{height:0; overflow:hidden;}
+  .sv-body ul{list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:10px 30px; padding:0 0 32px 76px;}
+  .sv-body li{font-size:15px; line-height:1.5; padding-left:18px; position:relative;}
+  .sv-body li::before{content:''; position:absolute; left:0; top:.7em; width:8px; height:1px; background:currentColor; opacity:.5;}
+  @media (max-width:900px){ .sv-grid{grid-template-columns:1fr;} .sv-side{position:static;} .sv-body ul{grid-template-columns:1fr; padding-left:0;} .sv-head{grid-template-columns:40px 1fr 20px;} }
+
+  /* ---------- WORKS (editorial grid with parallax) ---------- */
+  .works{padding:clamp(110px,13vw,200px) 0 clamp(60px,8vw,120px);}
+  .wk-head{display:flex; justify-content:space-between; align-items:flex-end; gap:30px; margin-bottom:clamp(60px,8vw,120px);}
+  .wk-head h2{font-family:var(--serif); font-weight:400; font-size:clamp(42px,5vw,84px); line-height:1;}
+  .wk-head h2 em{color:var(--champagne);}
+  .wk-head p{font-size:15px; line-height:1.75; color:var(--mute); max-width:360px;}
+  .wk-grid{display:grid; grid-template-columns:repeat(12,1fr); gap:clamp(14px,2vw,30px); align-items:start;}
+  .wk{position:relative; cursor:zoom-in; display:block; text-align:left;}
+  .wk .ph{overflow:hidden; aspect-ratio:500/650; background:var(--night-2);}
+  .wk .ph img{width:100%; height:100%; object-fit:cover; transition:transform 1.2s var(--expo);}
+  .wk:hover .ph img{transform:scale(1.05);}
+  .wk .cap{display:flex; justify-content:space-between; margin-top:12px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--mute);}
+  .wk:nth-child(1){grid-column:1 / span 4;}
+  .wk:nth-child(2){grid-column:6 / span 3; margin-top:22vh;}
+  .wk:nth-child(3){grid-column:10 / span 3; margin-top:6vh;}
+  .wk:nth-child(4){grid-column:2 / span 3; margin-top:8vh;}
+  .wk:nth-child(5){grid-column:6 / span 5; margin-top:-6vh;}
+  .wk:nth-child(6){grid-column:1 / span 3; margin-top:10vh;}
+  .wk:nth-child(7){grid-column:5 / span 3; margin-top:24vh;}
+  .wk:nth-child(8){grid-column:9 / span 4; margin-top:2vh;}
+  .wk:nth-child(9){grid-column:4 / span 4; margin-top:8vh;}
+  @media (max-width:760px){
+    .wk-head{flex-direction:column; align-items:flex-start;}
+    .wk-grid{grid-template-columns:1fr 1fr;}
+    .wk:nth-child(n){grid-column:auto; margin-top:0;}
+    .wk:nth-child(even){margin-top:14vh;}
+  }
+
+  /* lightbox */
+  .lb{position:fixed; inset:0; z-index:2000; background:rgba(8,8,7,.97); display:flex; align-items:center; justify-content:center; padding:70px 20px 50px; visibility:hidden; opacity:0; transition:opacity .4s ease, visibility 0s linear .4s;}
+  .lb.on{visibility:visible; opacity:1; transition:opacity .4s ease;}
+  .lb img{max-height:calc(100vh - 140px); max-width:min(86vw, 720px); object-fit:contain;}
+  .lb-x{position:absolute; top:24px; right:var(--pad); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ivory);}
+  .lb-nav{position:absolute; top:50%; transform:translateY(-50%); font-family:var(--serif); font-size:20px; color:var(--ivory); padding:20px;}
+  .lb-prev{left:2vw;} .lb-next{right:2vw;}
+  .lb-cap{position:absolute; bottom:22px; left:0; right:0; text-align:center; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:rgba(236,230,220,.5);}
+
+  /* ---------- PROCESS ---------- */
+  .process{padding:clamp(100px,12vw,180px) 0;}
+  .pr-head{max-width:900px; margin-bottom:clamp(60px,7vw,100px);}
+  .pr-head h2{font-family:var(--serif); font-weight:400; font-size:clamp(42px,5vw,84px); line-height:1; margin-top:22px;}
+  .pr-head h2 em{color:var(--champagne);}
+  .pr-line{height:1px; background:var(--line); position:relative; margin-bottom:40px;}
+  .pr-line i{position:absolute; inset:0; background:var(--fg); transform:scaleX(0); transform-origin:left;}
+  .pr-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(24px,3vw,50px);}
+  .pr-step .n{font-family:var(--serif); font-size:clamp(46px,4.4vw,76px); line-height:1; color:var(--champagne);}
+  .pr-step h3{font-family:var(--serif); font-weight:400; font-size:clamp(24px,2vw,32px); margin:18px 0 12px;}
+  .pr-step p{font-size:14.5px; line-height:1.75; color:var(--mute);}
+  @media (max-width:900px){ .pr-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .pr-grid{grid-template-columns:1fr;} }
+
+  /* ---------- FAQ ---------- */
+  .faq{padding:0 0 clamp(110px,13vw,200px);}
+  .fq-grid{display:grid; grid-template-columns:1fr 1.6fr; gap:clamp(40px,7vw,140px);}
+  .fq-grid h2{font-family:var(--serif); font-weight:400; font-size:clamp(42px,5vw,84px); line-height:1; margin-top:22px;}
+  .fq-item{border-top:1px solid var(--line);}
+  .fq-list .fq-item:last-child{border-bottom:1px solid var(--line);}
+  .fq-q{width:100%; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:26px 0; text-align:left; font-family:var(--serif); font-size:clamp(21px,1.8vw,28px);}
+  .fq-q .sv-plus{flex:0 0 16px;}
+  .fq-item.open .sv-plus::after{transform:rotate(0deg);}
+  .fq-a{height:0; overflow:hidden;}
+  .fq-a p{font-size:15px; line-height:1.8; color:var(--mute); padding:0 40px 28px 0; max-width:640px;}
+  @media (max-width:900px){ .fq-grid{grid-template-columns:1fr;} }
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:clamp(110px,13vw,200px) 0 clamp(80px,9vw,140px); overflow:hidden;}
+  .ct-marquee{white-space:nowrap; overflow:hidden; margin-bottom:clamp(60px,7vw,110px);}
+  .ct-track{display:inline-flex; will-change:transform;}
+  .ct-track span{font-family:var(--serif); font-size:clamp(64px,11vw,190px); line-height:1; padding-right:.35em; display:inline-flex; align-items:center; gap:.35em;}
+  .ct-track span em{color:var(--champagne);}
+  .ct-track span::after{content:'✦'; font-size:.25em; color:var(--champagne); font-style:normal;}
+  .ct-grid{display:grid; grid-template-columns:1fr 1.3fr; gap:clamp(40px,7vw,140px); align-items:start;}
+  .ct-side p{font-size:16px; line-height:1.75; color:var(--mute); max-width:420px; margin:22px 0 34px;}
+  .ct-links a{display:flex; justify-content:space-between; padding:16px 0; border-top:1px solid var(--line); font-size:14px; transition:padding .5s var(--expo);}
+  .ct-links a:last-child{border-bottom:1px solid var(--line);}
+  .ct-links a:hover{padding-left:10px;}
+  .ct-links a span:first-child{color:var(--mute); font-size:11px; letter-spacing:.14em; text-transform:uppercase;}
+  .form .row2{display:grid; grid-template-columns:1fr 1fr; gap:30px;}
+  .fld{display:block; position:relative; border-bottom:1px solid var(--line); padding:22px 0 8px; transition:border-color .3s;}
+  .fld:focus-within{border-color:var(--fg);}
+  .fld span{display:block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); margin-bottom:6px;}
+  .fld input, .fld textarea{width:100%; background:none; border:0; outline:none; font-family:var(--serif); font-size:clamp(20px,1.6vw,26px); color:var(--fg); resize:none; padding:2px 0;}
+  .fld input::placeholder, .fld textarea::placeholder{color:rgba(236,230,220,.25);}
+  .fld input[type=date]{color-scheme:dark;}
+  .send{margin-top:36px; display:flex; align-items:center; gap:24px; flex-wrap:wrap;}
+  .btn{display:inline-flex; align-items:center; gap:16px; height:64px; padding:0 34px; border-radius:999px; background:var(--ivory); color:var(--night); font-size:13px; letter-spacing:.06em; position:relative; overflow:hidden; isolation:isolate; transition:color .5s ease;}
+  .btn::before{content:''; position:absolute; inset:0; background:var(--champagne); border-radius:inherit; z-index:-1; transform:translateY(101%); transition:transform .6s var(--expo);}
+  .btn:hover::before{transform:translateY(0);}
+  .btn .arr{transition:transform .5s var(--expo);}
+  .btn:hover .arr{transform:translateX(4px);}
+  .send small{font-size:12.5px; line-height:1.6; color:var(--mute); max-width:260px;}
+  .done{display:none; padding:40px 0;}
+  .done h3{font-family:var(--serif); font-weight:400; font-size:clamp(36px,3.6vw,56px); line-height:1.05;}
+  .done h3 em{color:var(--champagne);}
+  .done p{margin-top:16px; font-size:15px; line-height:1.75; color:var(--mute); max-width:440px;}
+  .sent .form{display:none;} .sent .done{display:block;}
+  @media (max-width:900px){ .ct-grid{grid-template-columns:1fr;} .form .row2{grid-template-columns:1fr; gap:0;} }
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:60px 0 28px; border-top:1px solid var(--line); overflow:hidden;}
+  .ft-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; font-size:12px; letter-spacing:.06em;}
+  .ft-top nav{display:flex; gap:26px; flex-wrap:wrap;}
+  .ft-top a{color:var(--mute); transition:color .3s;}
+  .ft-top a:hover{color:var(--fg);}
+  .ft-end{display:flex; justify-content:space-between; align-items:flex-end; gap:30px; flex-wrap:wrap; padding:clamp(60px,8vw,120px) 0 clamp(40px,5vw,70px);}
+  .ft-end p{font-family:var(--serif); font-size:clamp(30px,3.4vw,56px); line-height:1.05;}
+  .ft-end p em{color:var(--champagne);}
+  .ft-logo{width:96px; line-height:0; opacity:.9;}
+  .ft-logo img{width:100%; height:auto;}
+  .ft-legal{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:11.5px; color:var(--mute);}
+
+  @media (prefers-reduced-motion: reduce){ .scroll-cue i::after{animation:none;} }
+  .static .hero, .static .cinema{height:900px; min-height:0;}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="ld-half ld-top" id="ldTop"></div>
+  <div class="ld-half ld-bot" id="ldBot"></div>
+  <div class="ld-mid" id="ldMid">
+    <div class="ld-logo"><img src="assets/logo-weiss.png" alt="" width="1200" height="489"></div>
+    <div class="ld-bar"><i id="ldBar"></i></div>
+    <div class="ld-count" id="ldCount">000</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#top" class="logo" aria-label="set — Start"><img src="assets/logo-weiss.png" alt="set" width="1200" height="489"></a>
+  <nav class="nav-links" aria-label="Hauptnavigation">
+    <a class="l" href="#manifest">Vision</a>
+    <a class="l" href="#services">Das Set</a>
+    <a class="l" href="#worlds">Welten</a>
+    <a class="l" href="#works">Momente</a>
+    <a class="l" href="#process">Ablauf</a>
+  </nav>
+  <a class="nav-cta l" href="#contact"><i></i>Bewerbung 2027</a>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-gl" id="heroGl">
+    <img src="assets/web/hero-1.jpg" alt="Brautpaar auf einer historischen Palasttreppe">
+  </div>
+  <div class="hero-shade"></div>
+  <div class="hero-ui">
+    <div class="hero-kick" id="heroKick">
+      <span class="eyebrow" style="color:rgba(236,230,220,.7)">Editorial Wedding Planning &amp; Direction</span>
+      <p>Bad Saulgau · Süddeutschland<br>Limitierte Termine 2027</p>
+    </div>
+    <h1 id="heroTitle">Nicht organisiert. <em>Inszeniert.</em></h1>
+    <div class="hero-meta" id="heroMeta">
+      <div class="hm-row"><span class="hm-num"><span id="hmNum">01</span> <small>/ 05</small></span><span id="hmCap">Palazzo</span></div>
+      <div class="hm-bar"><i id="hmBar"></i></div>
+      <div class="hm-dots" id="hmDots"><button class="on" aria-label="Bild 1"></button><button aria-label="Bild 2"></button><button aria-label="Bild 3"></button><button aria-label="Bild 4"></button><button aria-label="Bild 5"></button></div>
+    </div>
+    <div class="scroll-cue">Scroll <i></i></div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifest">
+  <div class="wrap">
+    <div class="mf-top"><span class="eyebrow">( Die Vision )</span><span class="eyebrow">SET — Est. Bad Saulgau</span></div>
+    <p class="mf-text" id="mfText">Die meisten Hochzeiten werden <span class="pill"><img src="assets/web/pill-1.jpg" alt=""></span> organisiert. Unsere werden <em>inszeniert</em> <span class="pill"><img src="assets/web/pill-2.jpg" alt=""></span> wie ein Film. Keine Sammlung einzelner Dienstleister, sondern eine Produktion, <span class="pill"><img src="assets/web/pill-3.jpg" alt=""></span> in der jedes Detail dieselbe Geschichte erzählt.</p>
+  </div>
+</section>
+
+<!-- CINEMA -->
+<section class="cinema" id="cinema">
+  <div class="cin-frame" id="cinFrame"><img src="assets/web/cinema.jpg" alt="Brautpaar an einer langen Hochzeitstafel" loading="lazy"></div>
+  <div class="cin-shade" id="cinShade"></div>
+  <div class="cin-text" id="cinText">
+    <span class="eyebrow" style="color:rgba(236,230,220,.8)">Unsere Philosophie</span>
+    <h2><span>Eine Vision. Ein Team.</span><span>Ein Ergebnis.</span></h2>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder">
+  <div class="wrap">
+    <div class="fd-grid">
+      <figure class="fd-img"><div class="fd-frame"><img src="assets/web/founder.jpg" alt="Braut in einem lichtdurchfluteten Torbogen" loading="lazy"></div></figure>
+      <div class="fd-inner">
+        <span class="eyebrow">( Ein Wort vom Gründer )</span>
+        <blockquote class="fd-quote" data-split>„Ich will nicht der Anbieter sein, der austauschbar ist. Ich will <em>das Set sein,</em> in dem eure Geschichte spielt.“</blockquote>
+        <div class="fd-by">Emre Can Bulut · Gründer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services" data-theme="light">
+  <div class="wrap">
+    <div class="sv-grid">
+      <div class="sv-side">
+        <span class="eyebrow">( Das Set )</span>
+        <h2 data-split>Acht Bereiche. <em>Ein Set.</em></h2>
+        <p data-fade>Wir übernehmen nicht Aufgaben. Wir übernehmen Verantwortung für das Ergebnis. Ein Team führt alle Gewerke, von der ersten Idee bis zum letzten Tanz.</p>
+      </div>
+      <div class="sv-list" id="svList">
+        <div class="sv-item"><button class="sv-head" aria-expanded="false"><span class="sv-num">01</span><span class="sv-title">Planung &amp; Konzeption</span><span class="sv-plus"></span></button>
+          <div class="sv-body"><ul><li>Individuelle Hochzeitsplanung</li><li>Ablaufplanung &amp; Tagesregie</li><li>Persönliche Beratung &amp; Betreuung</li></ul></div></div>
+        <div class="sv-item"><button class="sv-head" aria-expanded="false"><span class="sv-num">02</span><span class="sv-title">Location &amp; Mobilität</span><span class="sv-plus"></span></button>
+          <div class="sv-body"><ul><li>Exklusive Hochzeitslocations</li><li>Luxuriöse Mietwagen &amp; Shuttleservice</li><li>Hotelbuchungen für Gäste</li></ul></div></div>
+        <div class="sv-item"><button class="sv-head" aria-expanded="false"><span class="sv-num">03</span><span class="sv-title">Design &amp; Drucksachen</span><span class="sv-plus"></span></button>
+          <div class="sv-body"><ul><li>Einladungskarten &amp; Save the Date</li><li>Menükarten &amp; Sitzpläne</li><li>Willkommensschilder</li><li>Gastgeschenke</li></ul></div></div>
+        <div class="sv-item"><button class="sv-head" aria-expanded="false"><span class="sv-num">04</span><span class="sv-title">Media &amp; Unterhaltung</span><span class="sv-plus"></span></button>
+          <div class="sv-body"><ul><li>Fotografen &amp; Videografen</li><li>Highlightvideos &amp; Aftermovies</li><li>DJ, Band &amp; Livemusik</li><li>Lichttechnik &amp; Tontechnik</li></ul></div></div>
+        <div class="sv-item"><button class="sv-head" aria-expanded="false"><span class="sv-num">05</span><span class="sv-title">Styling &amp; Mode</span><span class="sv-plus"></span></button>
+          <div class="sv-body"><ul><li>Brautstyling (Hair &amp; Makeup)</li><li>Brautkleidberatung</li><li>Anzüge &amp; Accessoires</li><li>Styling für die Familie</li></ul></div></div>
+        <div class="sv-item"><button class="sv-head" aria-expanded="false"><span class="sv-num">06</span><span class="sv-title">Catering &amp; Service</span><span class="sv-plus"></span></button>
+          <div class="sv-body"><ul><li>Menüvarianten &amp; Buffetvarianten</li><li>Hochzeitstorten &amp; Candy Bars</li><li>Kellner &amp; Barkeeper</li><li>Sektempfang</li></ul></div></div>
+        <div class="sv-item"><button class="sv-head" aria-expanded="false"><span class="sv-num">07</span><span class="sv-title">Sicherheit &amp; Organisation</span><span class="sv-plus"></span></button>
+          <div class="sv-body"><ul><li>Security &amp; Zugangskontrolle mit Gästeliste</li><li>Hostessen &amp; Empfangspersonal</li><li>Parkservice / Valet</li></ul></div></div>
+        <div class="sv-item"><button class="sv-head" aria-expanded="false"><span class="sv-num">08</span><span class="sv-title">Special Touches</span><span class="sv-plus"></span></button>
+          <div class="sv-body"><ul><li>Dekorationsverleih</li><li>App mit Zeitplan</li><li>Kinderbetreuung</li><li>Fotobox &amp; 360° Kamera</li><li>Feuerwerk</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORLDS -->
+<section class="worlds" id="worlds">
+  <div class="wrap">
+    <div class="wd-head">
+      <div><span class="eyebrow">( Vier Welten )</span><h2 data-split>Vier Welten. <em>Eine Handschrift.</em></h2></div>
+      <p data-fade>Inspiration für die Ästhetik, die wir für euch inszenieren. Wählt eine Welt, oder wir erfinden eure eigene.</p>
+    </div>
+    <div class="wd-row" id="wdRow">
+      <div class="wd on" tabindex="0" role="button" aria-expanded="true">
+        <img class="cv" src="assets/web/palazzo-1.jpg" alt="Brautpaar auf einer Palasttreppe" loading="lazy">
+        <div class="wd-label"><span class="wd-num">01</span><div class="wd-name">Palazzo</div>
+          <div class="wd-more"><p>Historische Räume, Patina und große Treppen. Für Paare, die zeitlose Eleganz suchen.</p>
+            <div class="wd-thumbs"><img src="assets/web/palazzo-2.jpg" alt="" loading="lazy"><img src="assets/web/palazzo-3.jpg" alt="" loading="lazy"></div></div></div>
+      </div>
+      <div class="wd" tabindex="0" role="button" aria-expanded="false">
+        <img class="cv" src="assets/web/villa-1.jpg" alt="Braut vor einer bewachsenen Villa" loading="lazy">
+        <div class="wd-label"><span class="wd-num">02</span><div class="wd-name">Garden Villa</div>
+          <div class="wd-more"><p>Grün, Licht und Blüten. Mediterrane Leichtigkeit vom ersten Blick bis zum letzten Tanz.</p>
+            <div class="wd-thumbs"><img src="assets/web/villa-2.jpg" alt="" loading="lazy"><img src="assets/web/villa-3.jpg" alt="" loading="lazy"></div></div></div>
+      </div>
+      <div class="wd" tabindex="0" role="button" aria-expanded="false">
+        <img class="cv" src="assets/web/pool-1.jpg" alt="Braut am Pool" loading="lazy">
+        <div class="wd-label"><span class="wd-num">03</span><div class="wd-name">Poolside</div>
+          <div class="wd-more"><p>Lange Tafeln, Wasser und klare Linien. Ein modernes Fest unter freiem Himmel.</p>
+            <div class="wd-thumbs"><img src="assets/web/pool-2.jpg" alt="" loading="lazy"><img src="assets/web/pool-3.jpg" alt="" loading="lazy"></div></div></div>
+      </div>
+      <div class="wd" tabindex="0" role="button" aria-expanded="false">
+        <img class="cv" src="assets/web/noir-1.jpg" alt="Schwarz-Weiß-Porträt einer Braut" loading="lazy">
+        <div class="wd-label"><span class="wd-num">04</span><div class="wd-name">Noir Editorial</div>
+          <div class="wd-more"><p>Schatten, Kontrast und Haltung. Wie aus einem Modemagazin.</p>
+            <div class="wd-thumbs"><img src="assets/web/noir-2.jpg" alt="" loading="lazy"><img src="assets/web/noir-3.jpg" alt="" loading="lazy"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="wk-head">
+      <h2 data-split>Ausgewählte <em>Momente.</em></h2>
+      <p data-fade>Eine kuratierte Auswahl an Stimmungsbildern. Kein Zufall, sondern Inszenierung: Ruhe, Licht und Haltung, bis ins letzte Detail geführt.</p>
+    </div>
+    <div class="wk-grid" id="wkGrid">
+      <button class="wk" data-speed="0"><span class="ph"><img src="assets/web/moment-1.jpg" alt="Editorial Moodboard" loading="lazy"></span><span class="cap"><span>Editorial</span><span>01</span></span></button>
+      <button class="wk" data-speed="-8"><span class="ph"><img src="assets/web/moment-2.jpg" alt="Editorial Moodboard" loading="lazy"></span><span class="cap"><span>The Couple</span><span>02</span></span></button>
+      <button class="wk" data-speed="6"><span class="ph"><img src="assets/web/moment-3.jpg" alt="Editorial Moodboard" loading="lazy"></span><span class="cap"><span>Ceremony</span><span>03</span></span></button>
+      <button class="wk" data-speed="-4"><span class="ph"><img src="assets/web/moment-4.jpg" alt="Editorial Moodboard" loading="lazy"></span><span class="cap"><span>Details</span><span>04</span></span></button>
+      <button class="wk" data-speed="4"><span class="ph"><img src="assets/web/moment-5.jpg" alt="Editorial Moodboard" loading="lazy"></span><span class="cap"><span>On Location</span><span>05</span></span></button>
+      <button class="wk" data-speed="-10"><span class="ph"><img src="assets/web/moment-6.jpg" alt="Editorial Moodboard" loading="lazy"></span><span class="cap"><span>Portrait</span><span>06</span></span></button>
+      <button class="wk" data-speed="8"><span class="ph"><img src="assets/web/moment-7.jpg" alt="Editorial Moodboard" loading="lazy"></span><span class="cap"><span>Editorial</span><span>07</span></span></button>
+      <button class="wk" data-speed="-6"><span class="ph"><img src="assets/web/moment-8.jpg" alt="Editorial Moodboard" loading="lazy"></span><span class="cap"><span>The Couple</span><span>08</span></span></button>
+      <button class="wk" data-speed="5"><span class="ph"><img src="assets/web/moment-9.jpg" alt="Editorial Moodboard" loading="lazy"></span><span class="cap"><span>Finale</span><span>09</span></span></button>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="Bildansicht">
+  <button class="lb-x" id="lbX">Schließen</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Vorheriges Bild">← Zurück</button>
+  <img id="lbImg" src="" alt="Editorial Moodboard">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Nächstes Bild">Weiter →</button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="pr-head">
+      <span class="eyebrow">( Ablauf )</span>
+      <h2 data-split>Vom ersten Gespräch <em>bis zum letzten Tanz.</em></h2>
+    </div>
+    <div class="pr-line"><i id="prLine"></i></div>
+    <div class="pr-grid">
+      <div class="pr-step"><span class="n">01</span><h3>Erstgespräch</h3><p>Wir lernen euch kennen, eure Vision, euren Stil, eure Wünsche für den Tag.</p></div>
+      <div class="pr-step"><span class="n">02</span><h3>Konzept</h3><p>Wir entwickeln die Dramaturgie eures Tages, von der Location bis zum letzten Tanz.</p></div>
+      <div class="pr-step"><span class="n">03</span><h3>Umsetzung</h3><p>Planung und Koordination aller Gewerke, geführt von einem verantwortlichen Team.</p></div>
+      <div class="pr-step"><span class="n">04</span><h3>Der Tag selbst</h3><p>Wir sind da, damit ihr es nicht sein müsst. Ihr feiert, wir organisieren.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="fq-grid">
+      <div><span class="eyebrow">( Fragen )</span><h2 data-split>Bevor ihr <em>euch bewerbt.</em></h2></div>
+      <div class="fq-list">
+        <div class="fq-item"><button class="fq-q" aria-expanded="false"><span>Wie läuft der Ablauf ab?</span><span class="sv-plus"></span></button><div class="fq-a"><p>Nach eurer Bewerbung folgt ein persönliches Kennenlerngespräch. Danach entwickeln wir gemeinsam das Konzept für euren Tag, von der ersten Idee bis zur letzten Kleinigkeit.</p></div></div>
+        <div class="fq-item"><button class="fq-q" aria-expanded="false"><span>Wie weit im Voraus sollten wir buchen?</span><span class="sv-plus"></span></button><div class="fq-a"><p>Da wir pro Jahr nur eine begrenzte Anzahl an Hochzeiten übernehmen, empfehlen wir eine frühzeitige Anfrage, am besten 12 bis 18 Monate vor eurem Wunschtermin.</p></div></div>
+        <div class="fq-item"><button class="fq-q" aria-expanded="false"><span>Was kostet eine Hochzeit mit SET?</span><span class="sv-plus"></span></button><div class="fq-a"><p>Jede Hochzeit wird individuell geplant, die Investition hängt vom Umfang und euren Wünschen ab. Nach dem Erstgespräch erhaltet ihr ein transparentes Angebot.</p></div></div>
+        <div class="fq-item"><button class="fq-q" aria-expanded="false"><span>Arbeitet ihr auch außerhalb von Bad Saulgau?</span><span class="sv-plus"></span></button><div class="fq-a"><p>Ja, wir realisieren Hochzeiten in ganz Süddeutschland und darüber hinaus. Sprecht uns einfach an.</p></div></div>
+        <div class="fq-item"><button class="fq-q" aria-expanded="false"><span>Was, wenn wir noch keine Location haben?</span><span class="sv-plus"></span></button><div class="fq-a"><p>Kein Problem, die Locationsuche ist Teil unserer Planung. Wir finden gemeinsam den passenden Ort für euch.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="ct-marquee" aria-hidden="true">
+    <div class="ct-track" id="ctTrack">
+      <span>Euer Set <em>beginnt hier</em></span><span>Bewerbung <em>2027</em></span><span>Euer Set <em>beginnt hier</em></span><span>Bewerbung <em>2027</em></span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="ct-grid">
+      <div class="ct-side">
+        <span class="eyebrow">( Kontakt )</span>
+        <p>Um höchste Qualität zu gewährleisten, nehmen wir pro Jahr nur eine begrenzte Anzahl ausgewählter Projekte an. Wir melden uns innerhalb von 48 Stunden, persönlich und nicht automatisiert.</p>
+        <div class="ct-links">
+          <a href="mailto:kontakt@setstudio.one"><span>E-Mail</span><span>kontakt@setstudio.one</span></a>
+          <a href="https://www.instagram.com/setstudio.one/" target="_blank" rel="noopener"><span>Instagram</span><span>@setstudio.one</span></a>
+          <a href="https://www.tiktok.com/@setstudio.one" target="_blank" rel="noopener"><span>TikTok</span><span>@setstudio.one</span></a>
+        </div>
+      </div>
+      <div id="ctBox">
+        <form class="form" id="ctForm" novalidate>
+          <div class="row2">
+            <label class="fld"><span>Eure Namen *</span><input name="names" required maxlength="80" placeholder="Anna &amp; Luca"></label>
+            <label class="fld"><span>E-Mail *</span><input name="email" type="email" required maxlength="120" placeholder="ihr@beispiel.de"></label>
+          </div>
+          <div class="row2">
+            <label class="fld"><span>Wunschtermin</span><input name="date" type="date"></label>
+            <label class="fld"><span>Region / Location</span><input name="place" maxlength="80" placeholder="noch offen"></label>
+          </div>
+          <label class="fld"><span>Eure Vision</span><textarea name="msg" rows="3" maxlength="800" placeholder="Editorial, klassisch oder ganz eigen …"></textarea></label>
+          <div class="send">
+            <button type="submit" class="btn">Bewerbung senden <span class="arr">→</span></button>
+            <small>Öffnet euer E-Mail-Programm mit allen Angaben an kontakt@setstudio.one.</small>
+          </div>
+        </form>
+        <div class="done" aria-live="polite">
+          <h3>Danke, <em id="doneName">ihr zwei</em>.</h3>
+          <p>Eure Bewerbung liegt in eurem E-Mail-Programm bereit. Einmal absenden, und wir melden uns innerhalb von 48 Stunden.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-top">
+      <span style="color:var(--mute)">Everything you need. In one Set.</span>
+      <nav>
+        <a href="https://www.instagram.com/setstudio.one/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@setstudio.one" target="_blank" rel="noopener">TikTok</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+      </nav>
+    </div>
+    <div class="ft-end" id="ftEnd"><p>Nicht organisiert. <em>Inszeniert.</em></p><div class="ft-logo"><img src="assets/logo-weiss.png" alt="set" width="1200" height="489" loading="lazy"></div></div>
+    <div class="ft-legal">
+      <span>© 2026 SET · Editorial Wedding Planning &amp; Direction · Bad Saulgau</span>
+      <span>Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  const root = document.documentElement;
+  const $ = (s, c=document) => c.querySelector(s);
+  const $$ = (s, c=document) => Array.from(c.querySelectorAll(s));
+  const ANIM = root.classList.contains('anim') && window.gsap && window.ScrollTrigger;
+  if(!ANIM) root.classList.remove('anim');
+  const finePointer = matchMedia('(pointer:fine)').matches;
+
+  /* ================= HERO: WebGL fluid slideshow ================= */
+  const SLIDES = [
+    {src:'assets/web/hero-1.jpg', cap:'Palazzo',        frame:[0, 0, 1, 1], focus:[.62, .45]},
+    {src:'assets/web/hero-2.jpg', cap:'Poolside',       frame:[0, 0, 1, 1], focus:[.6, .55]},
+    {src:'assets/web/hero-3.jpg', cap:'Portrait',       frame:[0, 0, 1, 1], focus:[.7, .6]},
+    {src:'assets/web/hero-4.jpg', cap:'Courtyard',      frame:[0, 0, 1, 1], focus:[.45, .5]},
+    {src:'assets/web/hero-5.jpg', cap:'Atelier',        frame:[0, 0, 1, 1], focus:[.5, .55]}
+  ];
+  const hero = {current:0, prog:0, ready:false};
+
+  const VERT = 'attribute vec2 p; varying vec2 vUv; void main(){ vUv = p*.5+.5; gl_Position = vec4(p,0.,1.); }';
+  const FRAG = [
+    'precision highp float;',
+    'varying vec2 vUv;',
+    'uniform sampler2D t0, t1;',
+    'uniform vec2 res, s0, s1, f0, f1;',
+    'uniform vec4 r0, r1;',
+    'uniform float prog, time, kb0, kb1;',
+    'uniform vec2 mouse; uniform float mStr;',
+    'float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453); }',
+    'float noise(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.-2.*f);',
+    '  return mix(mix(hash(i),hash(i+vec2(1,0)),f.x), mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x), f.y); }',
+    'float fbm(vec2 p){ float v=0., a=.5; for(int i=0;i<4;i++){ v+=a*noise(p); p*=2.03; a*=.5; } return v; }',
+    'vec2 cover(vec2 uv, vec2 img, vec4 r, vec2 focus, float zoom){',
+    '  vec2 sz = img * r.zw;',
+    '  float rs = res.x/res.y, ri = sz.x/sz.y;',
+    '  vec2 scale = rs > ri ? vec2(1., ri/rs) : vec2(rs/ri, 1.);',
+    '  scale /= zoom;',
+    '  vec2 u = (uv - .5) * scale + .5;',
+    '  u += (focus - .5) * (1. - scale);',
+    '  return r.xy + u * r.zw;',
+    '}',
+    'void main(){',
+    '  vec2 uv = vUv;',
+    '  vec2 d = uv - mouse; d.x *= res.x/res.y;',
+    '  float dist = length(d);',
+    '  float rip = smoothstep(.32, 0., dist) * mStr;',
+    '  uv += (d / max(dist, .001)) * rip * .018 * sin(dist*38. - time*4.);',
+    '  float n = fbm(uv*2.6 + time*.04);',
+    '  float edge = n*.65 + uv.x*.35;',
+    '  float m = smoothstep(edge - .18, edge + .18, prog*1.36 - .18);',
+    '  vec2 w0 = uv + (n - .5) * prog * .22;',
+    '  vec2 w1 = uv - (n - .5) * (1. - prog) * .22;',
+    '  vec4 c0 = texture2D(t0, cover(w0, s0, r0, f0, 1.04 + kb0*.06));',
+    '  vec4 c1 = texture2D(t1, cover(w1, s1, r1, f1, 1.04 + kb1*.06));',
+    '  vec3 col = mix(c0.rgb, c1.rgb, m);',
+    '  float v = smoothstep(1.25, .35, length(vUv - .5) * 1.4);',
+    '  col *= mix(.72, 1., v);',
+    '  col += (hash(vUv*res + fract(time)*100.) - .5) * .05;',
+    '  gl_FragColor = vec4(col, 1.);',
+    '}'
+  ].join('\n');
+
+  function initGL(){
+    const host = $('#heroGl');
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl', {antialias:false, alpha:false, powerPreference:'high-performance'});
+    if(!gl) return null;
+    function sh(type, src){ const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)){ console.warn(gl.getShaderInfoLog(s)); return null; } return s; }
+    const vs = sh(gl.VERTEX_SHADER, VERT), fs = sh(gl.FRAGMENT_SHADER, FRAG);
+    if(!vs || !fs) return null;
+    const pr = gl.createProgram(); gl.attachShader(pr, vs); gl.attachShader(pr, fs); gl.linkProgram(pr);
+    if(!gl.getProgramParameter(pr, gl.LINK_STATUS)) return null;
+    gl.useProgram(pr);
+    const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const U = {}; ['t0','t1','res','s0','s1','f0','f1','r0','r1','prog','time','kb0','kb1','mouse','mStr'].forEach(k => U[k] = gl.getUniformLocation(pr, k));
+    gl.uniform1i(U.t0, 0); gl.uniform1i(U.t1, 1);
+    host.appendChild(canvas);
+    return {gl, canvas, U};
+  }
+
+  function loadTex(gl, src){
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        const t = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, t);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        resolve({tex:t, w:img.naturalWidth, h:img.naturalHeight});
+      };
+      img.onerror = reject;
+      img.src = src;
+    });
+  }
+
+  const G = initGL();
+  if(G){
+    const {gl, canvas, U} = G;
+    let texs = [], visible = true, t0 = performance.now(), slideStart = [0, 0];
+    const mouse = {x:.5, y:.5, tx:.5, ty:.5, s:0, ts:0};
+    function resize(){
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const w = canvas.clientWidth, h = canvas.clientHeight;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(U.res, canvas.width, canvas.height);
+    }
+    function bind(unit, i){
+      const s = SLIDES[i], T = texs[i];
+      gl.activeTexture(unit ? gl.TEXTURE1 : gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, T.tex);
+      gl.uniform2f(unit ? U.s1 : U.s0, T.w, T.h);
+      gl.uniform4f(unit ? U.r1 : U.r0, s.frame[0], s.frame[1], s.frame[2], s.frame[3]);
+      gl.uniform2f(unit ? U.f1 : U.f0, s.focus[0], s.focus[1]);
+    }
+    hero.next = -1;
+    function frame(now){
+      if(visible && hero.ready){
+        const t = (now - t0) / 1000;
+        mouse.x += (mouse.tx - mouse.x) * .08; mouse.y += (mouse.ty - mouse.y) * .08; mouse.s += (mouse.ts - mouse.s) * .06;
+        mouse.ts *= .965;
+        gl.uniform1f(U.time, t);
+        gl.uniform1f(U.prog, hero.prog);
+        gl.uniform1f(U.kb0, Math.min((now - slideStart[0]) / 9000, 1));
+        gl.uniform1f(U.kb1, Math.min((now - slideStart[1]) / 9000, 1));
+        gl.uniform2f(U.mouse, mouse.x, mouse.y);
+        gl.uniform1f(U.mStr, mouse.s);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      }
+      requestAnimationFrame(frame);
+    }
+    if(finePointer){
+      $('.hero').addEventListener('mousemove', e => {
+        const r = canvas.getBoundingClientRect();
+        mouse.tx = (e.clientX - r.left) / r.width; mouse.ty = 1 - (e.clientY - r.top) / r.height; mouse.ts = 1;
+      });
+    }
+    new IntersectionObserver(es => es.forEach(e => visible = e.isIntersecting)).observe($('.hero'));
+    window.addEventListener('resize', resize);
+
+    Promise.all(SLIDES.map(s => loadTex(gl, s.src))).then(list => {
+      texs = list; resize();
+      bind(0, 0); bind(1, 1 % SLIDES.length);
+      slideStart = [performance.now(), performance.now()];
+      hero.ready = true;
+      root.classList.add('gl-on');
+      hero.go = (to) => {
+        if(hero.busy || to === hero.current) return;
+        hero.busy = true;
+        bind(1, to); slideStart[1] = performance.now();
+        const done = () => { bind(0, to); slideStart[0] = slideStart[1]; hero.prog = 0; hero.current = to; hero.busy = false; };
+        if(window.gsap) gsap.to(hero, {prog:1, duration:2, ease:'power2.inOut', onComplete:done});
+        else { hero.prog = 1; done(); }
+        updateUI(to);
+      };
+      startAuto();
+      requestAnimationFrame(frame);
+    }).catch(() => {});
+  }
+
+  /* hero UI (counter, caption, autoplay bar) */
+  const hmNum = $('#hmNum'), hmCap = $('#hmCap'), dots = $$('#hmDots button');
+  function updateUI(i){
+    hmNum.textContent = String(i + 1).padStart(2, '0');
+    hmCap.textContent = SLIDES[i].cap;
+    dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    if(window.gsap) gsap.fromTo([hmNum, hmCap], {opacity:0, y:8}, {opacity:1, y:0, duration:.8, ease:'power3.out'});
+  }
+  let autoTween = null;
+  function startAuto(){
+    if(!window.gsap || !hero.go) return;
+    if(autoTween) autoTween.kill();
+    autoTween = gsap.fromTo('#hmBar', {scaleX:0}, {scaleX:1, duration:6, ease:'none', onComplete:() => { hero.go((hero.current + 1) % SLIDES.length); startAuto(); }});
+  }
+  dots.forEach((d, i) => d.addEventListener('click', () => { if(hero.go){ hero.go(i); startAuto(); } }));
+
+  /* ================= split words ================= */
+  function split(el){
+    const walk = node => Array.from(node.childNodes).forEach(n => {
+      if(n.nodeType === 3){
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if(!part) return;
+          if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(' ')); return; }
+          const o = document.createElement('span'); o.className = 'w';
+          const i = document.createElement('span'); i.className = 'wi'; i.textContent = part;
+          o.appendChild(i); frag.appendChild(o);
+        });
+        n.replaceWith(frag);
+      } else if(n.nodeType === 1 && n.tagName !== 'BR' && !n.classList.contains('pill')){ walk(n); }
+    });
+    walk(el);
+    return $$('.wi', el);
+  }
+
+  /* ================= accordions ================= */
+  function accordion(itemSel, headSel, bodySel){
+    $$(itemSel).forEach(item => {
+      const head = $(headSel, item), body = $(bodySel, item);
+      head.addEventListener('click', () => {
+        const open = !item.classList.contains('open');
+        $$(itemSel + '.open').forEach(o => { if(o !== item){ o.classList.remove('open'); $(headSel, o).setAttribute('aria-expanded', 'false');
+          ANIM ? gsap.to($(bodySel, o), {height:0, duration:.7, ease:'expo.inOut'}) : ($(bodySel, o).style.height = '0'); }});
+        item.classList.toggle('open', open); head.setAttribute('aria-expanded', open);
+        if(ANIM) gsap.to(body, {height:open ? 'auto' : 0, duration:.8, ease:'expo.inOut', onComplete:() => ScrollTrigger.refresh()});
+        else body.style.height = open ? 'auto' : '0';
+      });
+    });
+  }
+  accordion('.sv-item', '.sv-head', '.sv-body');
+
+  /* ================= worlds: expanding panels ================= */
+  const worlds = $$('.wd');
+  function openWorld(w){ worlds.forEach(o => { const on = o === w; o.classList.toggle('on', on); o.setAttribute('aria-expanded', on); }); }
+  worlds.forEach(w => {
+    if(finePointer) w.addEventListener('mouseenter', () => openWorld(w));
+    w.addEventListener('click', () => openWorld(w));
+    w.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openWorld(w); } });
+  });
+  accordion('.fq-item', '.fq-q', '.fq-a');
+
+  /* ================= anchors ================= */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]'); if(!a) return;
+    const id = a.getAttribute('href'); const t = id.length > 1 ? $(id) : null; if(!t) return;
+    e.preventDefault();
+    window.scrollTo({top:t.getBoundingClientRect().top + window.scrollY, behavior:'smooth'});
+  });
+
+  /* ================= lightbox ================= */
+  const works = $$('.wk'), lb = $('#lb'), lbImg = $('#lbImg'), lbCap = $('#lbCap');
+  let lbI = 0;
+  function show(i){ lbI = (i + works.length) % works.length; lbImg.src = $('img', works[lbI]).src; lbCap.textContent = String(lbI + 1).padStart(2, '0') + ' / ' + String(works.length).padStart(2, '0');
+    if(ANIM) gsap.fromTo(lbImg, {opacity:0, scale:.97}, {opacity:1, scale:1, duration:.7, ease:'power3.out'}); }
+  function closeLb(){ lb.classList.remove('on'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; works[lbI].focus(); }
+  works.forEach((w, i) => w.addEventListener('click', () => { show(i); lb.classList.add('on'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; $('#lbX').focus(); }));
+  $('#lbX').addEventListener('click', closeLb);
+  $('#lbPrev').addEventListener('click', () => show(lbI - 1));
+  $('#lbNext').addEventListener('click', () => show(lbI + 1));
+  lb.addEventListener('click', e => { if(e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if(!lb.classList.contains('on')) return;
+    if(e.key === 'Escape') closeLb(); if(e.key === 'ArrowRight') show(lbI + 1); if(e.key === 'ArrowLeft') show(lbI - 1);
+  });
+
+  /* ================= contact form ================= */
+  $('#ctForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target, names = f.names.value.trim(), email = f.email.value.trim();
+    if(!names){ f.names.focus(); return; }
+    if(!email || !f.email.checkValidity()){ f.email.focus(); return; }
+    const body = ['Namen: ' + names, 'E-Mail: ' + email, 'Wunschtermin: ' + (f.date.value || 'noch offen'),
+      'Region / Location: ' + (f.place.value.trim() || 'noch offen'), '', 'Unsere Vision:', f.msg.value.trim()].join('\n');
+    window.location.href = 'mailto:kontakt@setstudio.one?subject=' + encodeURIComponent('Bewerbung 2027 · ' + names) + '&body=' + encodeURIComponent(body);
+    $('#doneName').textContent = names;
+    $('#ctBox').classList.add('sent');
+    if(ANIM) gsap.fromTo('.done > *', {opacity:0, y:24}, {opacity:1, y:0, duration:1, stagger:.1, ease:'power3.out'});
+  });
+
+  if(!ANIM) return;
+
+  /* ================= MOTION (transform + opacity only) ================= */
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.defaults({ease:'expo.out'});
+  if('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if(!location.hash) window.scrollTo(0, 0);
+
+  const heroWords = split($('#heroTitle'));
+  $$('[data-split]').forEach(el => el._w = split(el));
+  const mfWords = split($('#mfText'));
+
+  /* ---------- loader → hero ---------- */
+  let seen = false;
+  try{ seen = !!sessionStorage.getItem('setSeen'); sessionStorage.setItem('setSeen', '1'); }catch(e){}
+  const L = seen ? .4 : 1;
+  document.body.style.overflow = 'hidden';
+  gsap.set(heroWords, {yPercent:110});
+  gsap.set(['#heroKick', '#heroMeta', '.scroll-cue', '#nav'], {opacity:0});
+  gsap.set('#heroGl', {scale:1.25});
+  const cnt = {v:0};
+  gsap.timeline()
+    .fromTo('.ld-logo img', {yPercent:110}, {yPercent:0, duration:1.1*L})
+    .to(cnt, {v:100, duration:1.5*L, ease:'power2.inOut', onUpdate:() => $('#ldCount').textContent = String(Math.round(cnt.v)).padStart(3, '0')}, 0)
+    .to('#ldBar', {scaleX:1, duration:1.5*L, ease:'power2.inOut'}, 0)
+    .to('#ldMid', {opacity:0, duration:.4, ease:'power2.in'}, 1.5*L)
+    .to('#ldTop', {yPercent:-100, duration:1.2, ease:'expo.inOut'}, 1.5*L + .2)
+    .to('#ldBot', {yPercent:100, duration:1.2, ease:'expo.inOut'}, 1.5*L + .2)
+    .to('#heroGl', {scale:1, duration:2.2}, 1.5*L + .3)
+    .to(heroWords, {yPercent:0, duration:1.4, stagger:.08}, 1.5*L + .75)
+    .to(['#heroKick', '#heroMeta', '.scroll-cue', '#nav'], {opacity:1, duration:1, stagger:.08, ease:'power2.out'}, 1.5*L + 1)
+    .add(() => { $('#loader').style.display = 'none'; document.body.style.overflow = ''; ScrollTrigger.refresh(); });
+
+  /* hero leaves: image sinks slower than the page, title rises */
+  gsap.timeline({scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}})
+    .to('#heroGl', {yPercent:22, ease:'none'}, 0)
+    .to('#heroTitle', {yPercent:-60, ease:'none'}, 0)
+    .to(['#heroMeta', '#heroKick', '.scroll-cue'], {opacity:0, ease:'none', duration:.5}, 0);
+
+  /* manifesto: words light up while reading, inline images open */
+  gsap.fromTo(mfWords, {opacity:.14}, {opacity:1, ease:'none', stagger:.1, scrollTrigger:{trigger:'#mfText', start:'top 75%', end:'bottom 45%', scrub:true}});
+  $$('.pill').forEach(p => gsap.fromTo(p, {width:0, opacity:0}, {width:'1.7em', opacity:1, duration:1.2, scrollTrigger:{trigger:p, start:'top 80%', once:true}}));
+
+  /* cinema: a small frame opens into the full screen */
+  gsap.set('#cinText > *', {opacity:0, y:30});
+  gsap.timeline({scrollTrigger:{trigger:'#cinema', start:'top top', end:'+=130%', pin:true, scrub:.5}})
+    .fromTo('#cinFrame', {scale:.42}, {scale:1, ease:'power2.inOut', duration:1}, 0)
+    .fromTo('#cinFrame img', {scale:1.5}, {scale:1, ease:'power2.inOut', duration:1}, 0)
+    .to('#cinShade', {opacity:1, duration:.4, ease:'none'}, .6)
+    .to('#cinText > *', {opacity:1, y:0, duration:.3, stagger:.08, ease:'power2.out'}, .7)
+    .to({}, {duration:.2});
+
+  /* headings + fades */
+  $$('[data-split]').forEach(el => gsap.fromTo(el._w, {yPercent:115}, {yPercent:0, duration:1.2, stagger:.04, scrollTrigger:{trigger:el, start:'top 85%', once:true}}));
+  $$('[data-fade]').forEach(el => gsap.fromTo(el, {opacity:0, y:24}, {opacity:1, y:0, duration:1.1, scrollTrigger:{trigger:el, start:'top 90%', once:true}}));
+
+  /* light theme for the services */
+  ScrollTrigger.create({trigger:'#services', start:'top 55%', end:'bottom 45%', toggleClass:{targets:document.body, className:'light'}});
+  ScrollTrigger.create({trigger:'#services', start:'top 55%', end:'bottom 45%', toggleClass:{targets:'#nav', className:'on-light'}});
+  gsap.fromTo('.sv-item', {opacity:0, y:30}, {opacity:1, y:0, duration:1, stagger:.06, scrollTrigger:{trigger:'#svList', start:'top 85%', once:true}});
+
+  /* works: rise in, then drift at different speeds */
+  $$('.wk').forEach(w => {
+    gsap.fromTo(w, {opacity:0, y:60}, {opacity:1, y:0, duration:1.4, scrollTrigger:{trigger:w, start:'top 92%', once:true}});
+    const s = +w.dataset.speed;
+    if(s) gsap.fromTo($('.ph', w), {yPercent:s}, {yPercent:-s, ease:'none', scrollTrigger:{trigger:w, start:'top bottom', end:'bottom top', scrub:true}});
+  });
+
+  /* founder portrait drifts inside its frame */
+  gsap.fromTo('.fd-frame img', {yPercent:-12}, {yPercent:0, ease:'none', scrollTrigger:{trigger:'.fd-frame', start:'top bottom', end:'bottom top', scrub:true}});
+  gsap.fromTo('.fd-frame', {opacity:0, y:60}, {opacity:1, y:0, duration:1.4, scrollTrigger:{trigger:'.fd-frame', start:'top 88%', once:true}});
+
+  /* worlds rise in one after another */
+  gsap.fromTo('.wd', {opacity:0, y:80}, {opacity:1, y:0, duration:1.4, stagger:.1, scrollTrigger:{trigger:'#wdRow', start:'top 85%', once:true}});
+
+  /* process line */
+  gsap.to('#prLine', {scaleX:1, ease:'none', scrollTrigger:{trigger:'.pr-grid', start:'top 85%', end:'bottom 60%', scrub:true}});
+  gsap.fromTo('.pr-step', {opacity:0, y:40}, {opacity:1, y:0, duration:1.2, stagger:.12, scrollTrigger:{trigger:'.pr-grid', start:'top 85%', once:true}});
+
+  /* contact marquee drifts with the scroll */
+  gsap.fromTo('#ctTrack', {xPercent:0}, {xPercent:-30, ease:'none', scrollTrigger:{trigger:'.contact', start:'top bottom', end:'bottom top', scrub:true}});
+
+  /* footer word */
+  gsap.fromTo('#ftEnd > *', {opacity:0, y:24}, {opacity:1, y:0, duration:1.2, stagger:.1, scrollTrigger:{trigger:'#ftEnd', start:'top 95%', once:true}});
+
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
