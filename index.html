@@ -24,7 +24,7 @@
 <link rel="preload" href="instrument-serif-1.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="inter-tight-5.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts.css">
-<link rel="preload" as="image" href="hero-1.webp" imagesrcset="hero-1-m.webp 1280w, hero-1.webp 1920w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" href="hero-1.webp" imagesrcset="hero-1-m.webp 2000w, hero-1.webp 2400w" imagesizes="100vw" fetchpriority="high">
 <script>
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && location.search.indexOf('static') < 0){ document.documentElement.classList.add('anim'); }
   else if(location.search.indexOf('static') > -1){ document.documentElement.classList.add('static'); }
@@ -540,7 +540,7 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-gl" id="heroGl">
-    <img fetchpriority="high" decoding="async" width="1920" height="1280" src="hero-1.webp" srcset="hero-1-m.webp 1280w, hero-1.webp 1920w" sizes="100vw" alt="Brautpaar auf einer historischen Palasttreppe">
+    <img fetchpriority="high" decoding="async" width="2400" height="1600" src="hero-1.webp" srcset="hero-1-m.webp 2000w, hero-1.webp 2400w" sizes="100vw" alt="Brautpaar auf einer historischen Palasttreppe">
   </div>
   <div class="hero-shade"></div>
   <div class="hero-ui">
@@ -590,7 +590,7 @@
 
 <!-- CINEMA -->
 <section class="cinema setzoom" id="cinema">
-  <img class="sz-img" id="szImg" decoding="async" width="1920" height="1280" src="hero-4.webp" srcset="hero-4-m.webp 1080w, hero-4.webp 1920w" sizes="100vw" alt="Braut in einem Innenhof mit Teppichen" loading="lazy">
+  <img class="sz-img" id="szImg" decoding="async" width="2400" height="1350" src="hero-4.webp" srcset="hero-4-m.webp 2000w, hero-4.webp 2400w" sizes="100vw" alt="Braut in einem Innenhof mit Teppichen" loading="lazy">
   <div class="sz-cover" id="szCover" aria-hidden="true"><img id="szLogo" src="logo-weiss.webp" alt="" width="1200" height="489"></div>
   <div class="cin-text" id="cinText">
     <span class="eyebrow" style="color:rgba(236,230,220,.8)">Unsere Philosophie</span>
@@ -940,7 +940,7 @@
     let texs = [], visible = true, t0 = performance.now(), slideStart = [0, 0];
     const mouse = {x:.5, y:.5, tx:.5, ty:.5, s:0, ts:0};
     function resize(){
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const dpr = Math.min(window.devicePixelRatio || 1, HM ? 2.5 : 1.5);
       const w = canvas.clientWidth, h = canvas.clientHeight;
       canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
       gl.viewport(0, 0, canvas.width, canvas.height);
