@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /konto.html
+Sitemap: https://setstudio.one/sitemap.xml

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konto · SET</title>
+<meta name="theme-color" content="#13100d">
+<meta name="description" content="Konto-Bestätigung und Passwort der SET-App.">
+<link rel="canonical" href="https://setstudio.one/konto.html">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/instrument-serif-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-tight-5.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="robots" content="noindex, follow">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/legal.css">
+</head>
+<body>
+
+<header class="nav">
+  <a href="index.html" class="logo" aria-label="set — Startseite"><img src="assets/logo-weiss.webp" alt="set" width="1200" height="489"></a>
+  <nav class="nav-links" aria-label="Rechtliches">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+  </nav>
+  <a class="nav-back" href="index.html"><span>←</span> Startseite</a>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">( SET · App )</span>
+      <h1><span class="ln"><span>Euer</span></span><span class="ln"><span><em>Konto</em></span></span></h1>
+      <div class="page-meta"><span>Bestätigung &amp; Passwort</span><span>setstudio.one · Bad Saulgau</span></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="account" id="account">
+      <div data-state="info">
+        <h2>Diese Seite gehört zur SET-App</h2>
+        <p>Hier landet ihr, wenn ihr eure E-Mail-Adresse bestätigt oder ein neues Passwort festlegt. Bitte öffnet dafür den Link aus der E-Mail, die wir euch geschickt haben.</p>
+      </div>
+      <div data-state="confirmed" hidden>
+        <h2>E-Mail bestätigt</h2>
+        <p>Danke! Eure E-Mail-Adresse ist bestätigt. Öffnet jetzt die SET-App und meldet euch mit eurer E-Mail-Adresse und eurem Passwort an.</p>
+      </div>
+      <form data-state="recovery" hidden id="pwForm" novalidate>
+        <h2>Neues Passwort festlegen</h2>
+        <p>Wählt ein neues Passwort mit mindestens 8 Zeichen.</p>
+        <label>Neues Passwort<input type="password" id="pw1" autocomplete="new-password" minlength="8" required></label>
+        <label>Passwort wiederholen<input type="password" id="pw2" autocomplete="new-password" minlength="8" required></label>
+        <p class="msg" id="pwMsg" role="alert"></p>
+        <button type="submit" id="pwBtn">Passwort speichern</button>
+      </form>
+      <div data-state="done" hidden>
+        <h2>Passwort geändert</h2>
+        <p>Euer neues Passwort ist gespeichert. Öffnet jetzt die SET-App und meldet euch damit an.</p>
+      </div>
+      <div data-state="error" hidden>
+        <h2>Der Link ist nicht mehr gültig</h2>
+        <p>Links aus unseren E-Mails sind aus Sicherheitsgründen nur kurz gültig und können nur einmal verwendet werden. Fordert in der App einfach einen neuen an („Passwort vergessen?“) oder schreibt uns an <a href="mailto:kontakt@setstudio.one">kontakt@setstudio.one</a>.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<footer>
+  <div class="wrap">
+    <div class="ft-top">
+      <span style="color:var(--mute)">Everything you need. In one Set.</span>
+      <nav>
+        <a href="index.html">Startseite</a>
+        <a href="https://www.instagram.com/setstudio.one/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@setstudio.one" target="_blank" rel="noopener">TikTok</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="app-datenschutz.html">App · Datenschutz</a>
+        <a href="app-nutzungsbedingungen.html">App · Nutzung</a>
+      </nav>
+    </div>
+    <div class="ft-end"><p>Nicht organisiert. <em>Inszeniert.</em></p><div class="ft-logo"><img src="assets/logo-weiss.webp" alt="set" width="1200" height="489" loading="lazy"></div></div>
+    <div class="ft-legal">
+      <span>© 2026 SET · Editorial Wedding Planning &amp; Direction · Bad Saulgau</span>
+      <span>Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .account{max-width:560px; margin:0 auto; padding:24px 0 120px}
+  .account h2{font-family:var(--serif, 'Instrument Serif', serif); font-weight:400; font-size:clamp(30px,5vw,44px); line-height:1.05; margin:0 0 16px}
+  .account p{color:var(--mute, #9a968c); line-height:1.65; margin:0 0 18px}
+  .account a{color:inherit; text-decoration:underline; text-underline-offset:3px}
+  .account label{display:block; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--mute, #9a968c); margin:22px 0 0}
+  .account input{display:block; width:100%; margin-top:10px; padding:14px 0; font:inherit; font-size:17px; letter-spacing:normal; text-transform:none; color:inherit; background:none; border:0; border-bottom:1px solid rgba(236,230,220,.25); outline:none; border-radius:0}
+  .account input:focus{border-bottom-color:#c8b58f}
+  .account button{margin-top:28px; padding:16px 30px; border:0; border-radius:40px; background:#ece6dc; color:#0b0b0a; font:inherit; font-size:15px; cursor:pointer}
+  .account button:disabled{opacity:.5; cursor:default}
+  .account .msg{color:#d0605a; min-height:1.4em; margin:14px 0 0}
+</style>
+<script>
+/* SET · Kontoseite: Bestätigungs- und Passwort-Links aus Supabase. Ohne Cookies, ohne Fremd-Skripte. */
+(function(){
+  const API = 'https://lzhszcwyvrpthchbnrzo.supabase.co/auth/v1';
+  const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6aHN6Y3d5dnJwdGhjaGJucnpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIwNTAxNzcsImV4cCI6MjEwNzYyNjE3N30.5-WUAFGD20C76erWWDn51L9dDUOcsorOh6yENKRxeH8';
+  const show = name => document.querySelectorAll('#account [data-state]').forEach(el => el.hidden = el.dataset.state !== name);
+
+  const params = new URLSearchParams(location.hash.slice(1) || location.search.slice(1));
+  const token = params.get('access_token');
+  const type = params.get('type');
+  // Token sofort aus der Adresszeile entfernen
+  if (location.hash || location.search) history.replaceState(null, '', location.pathname);
+
+  if (params.get('error') || params.get('error_code')) return show('error');
+  if (!token) return show('info');
+  if (type !== 'recovery') return show('confirmed');
+
+  show('recovery');
+  const form = document.getElementById('pwForm'), msg = document.getElementById('pwMsg'), btn = document.getElementById('pwBtn');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const p1 = document.getElementById('pw1').value, p2 = document.getElementById('pw2').value;
+    msg.textContent = '';
+    if (p1.length < 8) return msg.textContent = 'Das Passwort braucht mindestens 8 Zeichen.';
+    if (p1 !== p2) return msg.textContent = 'Die beiden Passwörter stimmen nicht überein.';
+    btn.disabled = true; btn.textContent = 'Wird gespeichert …';
+    try {
+      const res = await fetch(API + '/user', {
+        method: 'PUT',
+        headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: p1 })
+      });
+      if (res.ok) return show('done');
+      const body = await res.json().catch(() => ({}));
+      if (res.status === 401 || res.status === 403) return show('error');
+      msg.textContent = body.code === 'same_password' ? 'Bitte wählt ein anderes Passwort als bisher.'
+        : body.code === 'weak_password' ? 'Dieses Passwort ist zu schwach. Bitte wählt ein längeres.'
+        : 'Das hat nicht geklappt. Bitte versucht es noch einmal.';
+    } catch (err) {
+      msg.textContent = 'Keine Verbindung. Bitte prüft eure Internetverbindung.';
+    }
+    btn.disabled = false; btn.textContent = 'Passwort speichern';
+  });
+})();
+</script>
+
+</body>
+</html>
